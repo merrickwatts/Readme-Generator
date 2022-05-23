@@ -31,25 +31,24 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   let badge = renderLicenseBadge(license);
   let link = renderLicenseLink(license);
-  return `${badge} this software is coverded under ${license} license. You can find more information here: ${link}`
+  return `${badge}<br>This software is coverded under ${license} license. You can find more information here: ${link}`
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# Project title ${renderLicenseBadge(data.license)} 
-  ${data.title}
-
+  return `# ${data.title} ${renderLicenseBadge(data.license)} 
+  
   ## Description
   ${data.description}
 
   ## Table of Contents
 
-  -[Installation](#installation)
-  -[Usage](#usage)
-  -[License](#license)
-  -[Contributing](#contributing)
-  -[Tests](#tests)
-  -[Questions](#questions)
+  -[Installation](#installation)  
+  -[Usage](#usage)  
+  -[License](#license)  
+  -[Contributing](#contributing)  
+  -[Tests](#tests)  
+  -[Questions](#questions)  
 
   ## Installation
   ${data.installation}
@@ -69,9 +68,8 @@ function generateMarkdown(data) {
   ## License
   ${renderLicenseSection(data.license)}
   
-  My Github: [GitHub](${"https://github.com/" + data.GHuser})
-  I can be reached via email at ${data.emailaddy}
-`;
+  My Github: [GitHub](${"https://github.com/" + data.GHuser})  
+  I can be reached via email at ${data.emailaddy}`;
 }
 
 module.exports = generateMarkdown;
